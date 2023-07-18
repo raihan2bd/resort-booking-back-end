@@ -1,7 +1,6 @@
 class BookingsController < ApplicationController
-
   def index
-    booking = Booking.all
+    Booking.all
   end
 
   def create
@@ -13,11 +12,10 @@ class BookingsController < ApplicationController
     end
   end
 
-  
   private
 
   def booking_params
     params.require(:booking)
-    .permit(:start_date, :end_date, :address)
+      .permit(:start_date, :end_date, :address)
   end
 end
