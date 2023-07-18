@@ -14,11 +14,27 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_17_090553) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "saved_resorts", force: :cascade do |t|
-    t.string "name"
-    t.string "image_url"
+  create_table "bookings", force: :cascade do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string "address"
+    t.bigint "user_id", null: false
+    t.bigint "resort_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["resort_id"], name: "index_bookings_on_resort_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "resorts", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "name"
+    t.string "location"
+    t.float "price"
+    t.text "description"
+    t.integer "guests_amount"
+    t.string "image_url"
+    t.index ["user_id"], name: "index_resorts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -27,4 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_17_090553) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "bookings", "resorts"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "resorts", "users"
 end
