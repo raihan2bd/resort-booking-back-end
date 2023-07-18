@@ -1,0 +1,10 @@
+<h1>Welcome to Our Resorts</h1>
+<ul>
+  <% @resorts.each do |resort| %>
+    <li>
+      <h2><%= resort.name %></h2>
+      <p><%= resort.location %></p>
+      <!-- Add more details here as needed -->
+    </li>
+  <% end %>
+</ul>
