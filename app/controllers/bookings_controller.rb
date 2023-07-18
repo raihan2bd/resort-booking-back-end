@@ -4,6 +4,10 @@ class BookingsController < ApplicationController
     booking = Booking.all
   end
 
-  def create
+  private
+
+  def booking_params
+    params.require(:booking)
+    .permit(:start_date, :end_date, :address)
   end
 end
