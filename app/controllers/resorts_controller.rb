@@ -21,7 +21,7 @@ class ResortsController < ApplicationController
   private
 
   def resort_params
-    user_id = current_user ? current_user: User.first
+    current_user || User.first
     params.require(:resort)
       .permit(:name, :description, :location, :price, :guests_amount, :image_url)
       .with_defaults(user_id: current_user.id)
