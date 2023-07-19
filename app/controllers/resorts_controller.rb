@@ -24,7 +24,7 @@ class ResortsController < ApplicationController
       render json: { message: 'Resort removed sucessfully' }, status: :ok
     else
       render json: { message: "Sorry, couldn't remove resort" }, status: :unprocessable_entity
-    end 
+    end
   end
 
   private

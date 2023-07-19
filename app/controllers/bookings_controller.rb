@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
       render json: { message: 'Booking removed sucessfully' }, status: :ok
     else
       render json: { message: "Sorry, couldn't remove booking" }, status: :unprocessable_entity
-    end 
+    end
   end
 
   private
