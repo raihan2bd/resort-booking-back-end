@@ -19,10 +19,11 @@ class ResortsController < ApplicationController
       render json: { error: 'Unable to create resort' }, status: :unprocessable_entity
     end
   end
-  
+
   private
 
   def resort_params
     params.require(:resort)
     .permit(:name, :location, :price, :guests_amount, :image_url)
+    .with_defaults(user_id: current_user.id)
 end

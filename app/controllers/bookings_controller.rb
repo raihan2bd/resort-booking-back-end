@@ -12,10 +12,15 @@ class BookingsController < ApplicationController
     end
   end
 
+  def destroy
+    # create delete method
+  end
+  
   private
 
   def booking_params
     params.require(:booking)
       .permit(:start_date, :end_date, :address)
+      .with_defaults(user_id: current_user.id)
   end
 end
