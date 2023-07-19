@@ -19,12 +19,12 @@ class ResortsController < ApplicationController
   end
 
   def destroy
-    @resort = Resort.find(params[:id])
+    @resort = Resort.find_by_id(params[:id])
     if @resort.destroy
-      render json: { message: 'Resort destroyed', id: @resort.id }, status: :destroyed
+      render json: { message: 'Resort removed sucessfully' }, status: :ok
     else
-      render json: { error: 'Unable to destroy resort' }, status: :unprocessable_entity
-    end
+      render json: { message: "Sorry, couldn't remove resort" }, status: :unprocessable_entity
+    end 
   end
 
   private
