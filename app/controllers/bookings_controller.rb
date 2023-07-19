@@ -14,6 +14,7 @@ class BookingsController < ApplicationController
 
   def destroy
     # create delete method
+    @booking.destroy
   end
 
   private
