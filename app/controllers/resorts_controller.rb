@@ -8,6 +8,12 @@ class ResortsController < ApplicationController
 
   def show
     resort = Presort.includes(:user).find(params[:id])
-    render json: packages
+    render json: package
   end
+
+  private
+
+  def resort_params
+    params.require(:resort)
+    .permit(:name, :location, :price, :guests_amount, :image_url)
 end
