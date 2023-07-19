@@ -5,7 +5,7 @@ class ResortsController < ApplicationController
   end
 
   def show
-    Presort.includes(:user).find(params[:id])
+    resort.includes(:user).find(params[:id])
     render json: package
   end
 
