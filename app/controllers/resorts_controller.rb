@@ -1,17 +1,17 @@
 class ResortsController < ApplicationController
   def index
-    resorts = Resort.include(:user)
-    render json: resorts
+    @resorts = Resort.all
+    render json: @resorts
   end
 
   def show
-    resort.includes(:user).find(params[:id])
-    render json: package
+    # resort.includes(:user).find(params[:id])
+    render json: @resorts
   end
 
   def create
-    resort = Resort.new(resort_params)
-    if resort.save
+    @resort = Resort.new(resort_params)
+    if @resort.save
       render json: { message: 'Resort created' }, status: :created
     else
       render json: { error: 'Unable to create resort' }, status: :unprocessable_entity
