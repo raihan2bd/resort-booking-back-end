@@ -1,6 +1,11 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = Booking.all
+    if current_user
+      @bookings = current_user.bookings
+      render json: @bookings.as_json(include: :resort)
+    else
+      render json: { message: 'No bookings found for the current user' }, status: :unauthorized
+    end
   end
 
   def show
@@ -13,7 +18,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     if @booking.save
-      render json: { message: 'booking created' }, status: :created
+      render json: { message: 'booking created', id: @booking.id }, status: :created
     else
       render json: { error: 'Unable to create booking' }, status: :unprocessable_entity
     end
