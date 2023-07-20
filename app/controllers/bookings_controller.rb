@@ -1,12 +1,17 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = Booking.all
+    @bookings = current_user.bookings.includes(:resort)
+    @booking_data = @bookings.map do |booking|
+      { booking:, resort: booking.resort }
+    end
+
+    render json: @booking_data
   end
 
   def create
     @booking = Booking.new(booking_params)
     if @booking.save
-      render json: { message: 'booking created' }, status: :created
+      render json: { message: 'booking created', id: @booking.id }, status: :created
     else
       render json: { error: 'Unable to create booking' }, status: :unprocessable_entity
     end
@@ -15,7 +20,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find_by_id(params[:id])
     if @booking.destroy
-      render json: { message: 'Booking removed sucessfully' }, status: :ok
+      render json: { message: 'Booking removed sucessfully'  }, status: :ok
     else
       render json: { message: "Sorry, couldn't remove booking" }, status: :unprocessable_entity
     end
