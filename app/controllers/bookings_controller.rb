@@ -1,13 +1,14 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = current_user.bookings.includes(:resort)
-    @booking_data = @bookings.map do |booking|
-      { booking:, resort: booking.resort }
+    if current_user
+      @bookings = current_user.bookings
+      render json: @bookings.as_json(include: :resort)
+    else
+      render json: { message: 'No bookings found for the current user' }, status: :not_found
     end
-
-    render json: @booking_data
   end
-
+  
+  
   def create
     @booking = Booking.new(booking_params)
     if @booking.save
