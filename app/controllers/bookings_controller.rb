@@ -4,11 +4,11 @@ class BookingsController < ApplicationController
       @bookings = current_user.bookings
       render json: @bookings.as_json(include: :resort)
     else
-      render json: { message: 'No bookings found for the current user' }, status: :not_found
+      render json: { message: 'No bookings found for the current user' }, status: :unauthorized
     end
   end
   
-  
+
   def create
     @booking = Booking.new(booking_params)
     if @booking.save
