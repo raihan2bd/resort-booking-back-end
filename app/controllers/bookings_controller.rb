@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
   rescue ActiveRecord::RecordNotFound
     render json: { error: 'Booking not found' }, status: :not_found
   end
-  
+
   def create
     @booking = Booking.new(booking_params)
     if @booking.save
