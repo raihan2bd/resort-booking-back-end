@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find_by_id(params[:id])
     if @booking.destroy
-      render json: { message: 'Booking removed sucessfully'  }, status: :ok
+      render json: { message: 'Booking removed sucessfully' }, status: :ok
     else
       render json: { message: "Sorry, couldn't remove booking" }, status: :unprocessable_entity
     end
