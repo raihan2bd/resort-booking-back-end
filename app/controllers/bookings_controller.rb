@@ -7,7 +7,6 @@ class BookingsController < ApplicationController
       render json: { message: 'No bookings found for the current user' }, status: :unauthorized
     end
   end
-  
 
   def create
     @booking = Booking.new(booking_params)
