@@ -1,12 +1,15 @@
 class ResortsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :destroy, :resort_params]
+  load_and_authorize_resource
+
   def index
     @resorts = Resort.all
     render json: @resorts
   end
 
   def show
-    # resort.includes(:user).find(params[:id])
-    render json: @resorts
+    @resort = Resort.includes(:user).find(params[:id])
+    render json: @resort
   end
 
   def create
@@ -30,7 +33,6 @@ class ResortsController < ApplicationController
   private
 
   def resort_params
-    current_user || User.first
     params.require(:resort)
       .permit(:name, :description, :location, :price, :guests_amount, :image_url)
       .with_defaults(user_id: current_user.id)
