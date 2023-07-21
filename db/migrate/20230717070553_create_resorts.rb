@@ -8,6 +8,7 @@ class CreateResorts < ActiveRecord::Migration[7.0]
       t.text :description
       t.integer :guests_amount
       t.string :image_url
+      t.timestamps
     end
   end
 end
