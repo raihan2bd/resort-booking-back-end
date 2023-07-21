@@ -1,5 +1,5 @@
 class ResortsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :destroy, :resort_params]
+  before_action :authenticate_user!, only: %i[create destroy resort_params]
   load_and_authorize_resource
 
   def index
