@@ -37,7 +37,7 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking)
-      .permit(:start_date, :end_date, :address)
+      .permit(:start_date, :end_date, :address, :resort_id)
       .with_defaults(user_id: current_user.id)
   end
 end
