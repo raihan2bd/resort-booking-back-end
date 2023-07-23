@@ -1,18 +1,35 @@
-require 'rails_helper'
+require 'swagger_helper'
 
 RSpec.describe Users::SessionsController, type: :request do
   before(:all) do
     @user = FactoryBot.create(:user)
   end
-  describe 'POST /login' do
-    it 'Logs in a user' do
-      post '/login', params: { user: { email: @user.email, password: @user.password } }, as: :json
-      expect(response).to have_http_status(:ok)
-    end
 
-    it 'returns an error if the user is not found or has bad credentials' do
-      post '/login', params: { user: { email: @user.email, password: '000' } }
-      expect(response).to have_http_status(:unauthorized)
+  let(:user) {
+    {
+      user: {
+        email: @user.email,
+        password: @user.password
+      }
+    }
+  }
+  path '/login' do
+    post 'login a user' do
+      tags 'User'
+      consumes 'application/json'
+      produces 'application/json'
+      parameter name: :user, in: :body, schema: {
+        type: :object,
+        properties: {
+          email: { type: :string },
+          password: { type: :string }
+        },
+        required: %w[email password] # Make sure role is required
+      }
+
+      response '200', 'OK' do
+        run_test!
+      end
     end
   end
 end
