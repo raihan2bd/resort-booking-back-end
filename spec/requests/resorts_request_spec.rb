@@ -5,7 +5,7 @@ RSpec.describe 'API::Resorts', type: :request do
     @user = FactoryBot.create(:user)
     post '/login', params: { user: { email: @user.email, password: @user.password } }, as: :json
     @authorization = response.header['Authorization']
-    @house = FactoryBot.create_list(:resort, 30)
+    @resorts = FactoryBot.create_list(:resort, 30)
   end
 
   describe 'GET /resorts' do
@@ -33,7 +33,7 @@ RSpec.describe 'API::Resorts', type: :request do
 
   describe 'DELETE /resorts/:id' do
     it 'deletes a resort if user role is admin' do
-      delete '/resorts/1', headers: { Authorization: @authorization }
+      delete "/resorts/#{@resorts.first.id}", headers: { Authorization: @authorization }
       expect(response).to have_http_status(:ok)
     end
   end
