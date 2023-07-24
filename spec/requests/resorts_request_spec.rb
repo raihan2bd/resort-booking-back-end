@@ -19,13 +19,13 @@ RSpec.describe 'Resorts API', type: :request do
   let(:user_id) { @user.id }
   let(:resort) do
     {
-      name: name,
-      location: location,
-      price: price,
-      description: description,
-      guests_amount: guests_amount,
-      image_url: image_url,
-      user_id: user_id
+      name:,
+      location:,
+      price:,
+      description:,
+      guests_amount:,
+      image_url:,
+      user_id:
     }
   end
 
@@ -57,7 +57,7 @@ RSpec.describe 'Resorts API', type: :request do
       end
     end
   end
-  
+
   path '/resorts/{id}' do
     parameter name: :id, in: :path, type: :integer, required: true
     let(:id) { @resorts.first.id }
@@ -69,18 +69,18 @@ RSpec.describe 'Resorts API', type: :request do
 
       response '200', 'OK' do
         schema type: :object,
-        properties: {
-          id: { type: :integer },
-          name: { type: :string },
-          location: { type: :string },
-          price: { type: :number },
-          description: { type: :string },
-          guests_amount: { type: :integer },
-          image_url: { type: :string },
-          user_id: { type: :integer },
-          created_at: { type: :string, format: :date_time },
-          updated_at: { type: :string, format: :date_time }
-        }
+               properties: {
+                 id: { type: :integer },
+                 name: { type: :string },
+                 location: { type: :string },
+                 price: { type: :number },
+                 description: { type: :string },
+                 guests_amount: { type: :integer },
+                 image_url: { type: :string },
+                 user_id: { type: :integer },
+                 created_at: { type: :string, format: :date_time },
+                 updated_at: { type: :string, format: :date_time }
+               }
 
         run_test!
       end
@@ -113,17 +113,17 @@ RSpec.describe 'Resorts API', type: :request do
     end
   end
 
-  
+
   path '/resorts/{id}' do
     parameter name: :id, in: :path, type: :integer, required: true
 
     let(:id) { @resorts.first.id }
-    
+
     delete 'Delete a resort if user role is admin' do
       tags 'Resorts'
       produces 'application/json'
       parameter name: :Authorization, in: :header, type: :string, required: true
-      
+
       response '200', 'OK' do
         run_test!
       end

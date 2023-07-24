@@ -8,7 +8,7 @@ FactoryBot.define do
     sequence(:description) { Faker::Lorem.word }
     sequence(:guests_amount) { Faker::Number.between(from: 3, to: 20) }
     sequence(:image_url) { Faker::LoremFlickr.image }
-    
+
     association :user
   end
 end

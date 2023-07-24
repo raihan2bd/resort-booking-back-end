@@ -1,5 +1,4 @@
 class Resort < ApplicationRecord
-
   # Validations
   validates :name, presence: true
   validates :location, presence: true

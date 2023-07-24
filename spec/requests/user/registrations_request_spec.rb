@@ -7,7 +7,7 @@ RSpec.describe Users::RegistrationsController, type: :request do
     @authorization = response.header['Authorization']
   end
 
-  let(:user) {
+  let(:user) do
     {
       user: {
         name: 'Testing',
@@ -16,7 +16,7 @@ RSpec.describe Users::RegistrationsController, type: :request do
         role: 'admin'
       }
     }
-  }
+  end
 
   path '/signup' do
     post 'Create a new user' do

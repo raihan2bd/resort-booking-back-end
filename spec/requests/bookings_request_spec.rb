@@ -18,11 +18,11 @@ RSpec.describe 'Bookings API', type: :request do
   let(:booking) do
     {
       booking: {
-        user_id: user_id,
-        resort_id: resort_id,
-        start_date: start_date,
-        end_date: end_date,
-        address: address
+        user_id:,
+        resort_id:,
+        start_date:,
+        end_date:,
+        address:
       }
     }
   end
@@ -38,17 +38,13 @@ RSpec.describe 'Bookings API', type: :request do
                items: {
                  type: :object,
                  properties: {
-                  id: { type: :integer },
-                  user_id: { type: :integer },
-                  resort_id: { type: :integer },
-                  start_date: { type: :string, format: :date },
-                  end_date: { type: :string, format: :date },
-                  address: { type: :string },
-                  created_at: { type: :string, format: :date_time },
-                  updated_at: { type: :string, format: :date_time }
-                },
-                required: %w[id user_id resort_id start_date end_date address created_at updated_at]
-              }
+                   id: { type: :integer }, user_id: { type: :integer }, resort_id: { type: :integer },
+                   start_date: { type: :string, format: :date }, end_date: { type: :string, format: :date },
+                   address: { type: :string }, created_at: { type: :string, format: :date_time },
+                   updated_at: { type: :string, format: :date_time }
+                 },
+                 required: %w[id user_id resort_id start_date end_date address created_at updated_at]
+               }
         run_test!
       end
     end
@@ -61,11 +57,8 @@ RSpec.describe 'Bookings API', type: :request do
       parameter name: :booking, in: :body, schema: {
         type: :object,
         properties: {
-          user_id: { type: :integer },
-          resort_id: { type: :integer },
-          start_date: { type: :string, format: :date },
-          end_date: { type: :string, format: :date },
-          address: { type: :string }
+          user_id: { type: :integer }, resort_id: { type: :integer }, start_date: { type: :string, format: :date },
+          end_date: { type: :string, format: :date }, address: { type: :string }
         },
         required: %w[user_id resort_id start_date end_date address]
       }

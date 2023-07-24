@@ -9,7 +9,7 @@ RSpec.describe Resort, type: :model do
   subject do
     Resort.new(
       user: @user,
-      name: "Lorem ipsum 1",
+      name: 'Lorem ipsum 1',
       location: 'Lorem ipsum dummy location',
       image_url: 'resort.jpg',
       guests_amount: 10,
@@ -25,28 +25,28 @@ RSpec.describe Resort, type: :model do
       expect(subject).to_not be_valid
     end
     it 'it should have an name' do
-        subject.name = nil
-        expect(subject).to_not be_valid
-      end
-  
-      it 'it should have an image url' do
-        subject.image_url = nil
-        expect(subject).to_not be_valid
-      end
-  
-      it 'it should have guests amount' do
-        subject.guests_amount = nil
-        expect(subject).to_not be_valid
-      end
-  
-      it 'it should have an description' do
-        subject.description = nil
-        expect(subject).to_not be_valid
-      end
-  
-      it 'it should have an price' do
-        subject.price = nil
-        expect(subject).to_not be_valid
-      end
+      subject.name = nil
+      expect(subject).to_not be_valid
+    end
+
+    it 'it should have an image url' do
+      subject.image_url = nil
+      expect(subject).to_not be_valid
+    end
+
+    it 'it should have guests amount' do
+      subject.guests_amount = nil
+      expect(subject).to_not be_valid
+    end
+
+    it 'it should have an description' do
+      subject.description = nil
+      expect(subject).to_not be_valid
+    end
+
+    it 'it should have an price' do
+      subject.price = nil
+      expect(subject).to_not be_valid
     end
   end
+end

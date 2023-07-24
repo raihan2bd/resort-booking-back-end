@@ -5,14 +5,14 @@ RSpec.describe Users::SessionsController, type: :request do
     @user = FactoryBot.create(:user)
   end
 
-  let(:user) {
+  let(:user) do
     {
       user: {
         email: @user.email,
         password: @user.password
       }
     }
-  }
+  end
   path '/login' do
     post 'login a user' do
       tags 'User'
