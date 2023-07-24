@@ -113,7 +113,6 @@ RSpec.describe 'Resorts API', type: :request do
     end
   end
 
-
   path '/resorts/{id}' do
     parameter name: :id, in: :path, type: :integer, required: true
 
