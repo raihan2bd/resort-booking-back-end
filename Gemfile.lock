@@ -90,6 +90,7 @@ GEM
       devise (~> 4.0)
       warden-jwt_auth (~> 0.8)
     diff-lcs (1.5.0)
+    dotenv (2.8.1)
     dry-auto_inject (1.0.1)
       dry-core (~> 1.0)
       zeitwerk (~> 2.6)
@@ -275,6 +276,7 @@ DEPENDENCIES
   debug
   devise
   devise-jwt
+  dotenv
   factory_bot_rails
   faker
   jsonapi-serializer
@@ -288,7 +290,7 @@ DEPENDENCIES
   tzinfo-data
 
 RUBY VERSION
-   ruby 3.2.2p53
+   ruby 3.1.2p20
 
 BUNDLED WITH
    2.4.13
