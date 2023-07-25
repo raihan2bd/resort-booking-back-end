@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'users/registrations#index'
+  root 'resorts#index'
   get '/current_user', to: 'current_user#index'
   devise_for :users, path: '', path_names: {
     sign_in: 'login',
