@@ -87,3 +87,4 @@ production:
   database: Resort_Booking_Back_end_production
   username: Resort_Booking_Back_end
   password: <%= ENV["RESORT_BOOKING_BACK_END_DATABASE_PASSWORD"] %>
+  url: <%= ENV["MY_APP_DATABASE_URL"] %>

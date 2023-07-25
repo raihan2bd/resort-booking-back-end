@@ -17,6 +17,8 @@ gem 'puma', '~> 5.0'
 
 gem 'cancancan'
 
+gem 'sprockets-rails'
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
