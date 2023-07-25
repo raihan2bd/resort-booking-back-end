@@ -1,0 +1,352 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/bookings":
+    get:
+      summary: Retrieve all bookings of the user
+      tags:
+      - Bookings
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    user_id:
+                      type: integer
+                    resort_id:
+                      type: integer
+                    start_date:
+                      type: string
+                      format: date
+                    end_date:
+                      type: string
+                      format: date
+                    address:
+                      type: string
+                    created_at:
+                      type: string
+                      format: date_time
+                    updated_at:
+                      type: string
+                      format: date_time
+                  required:
+                  - id
+                  - user_id
+                  - resort_id
+                  - start_date
+                  - end_date
+                  - address
+                  - created_at
+                  - updated_at
+    post:
+      summary: Create a new resort booking
+      tags:
+      - Bookings
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                resort_id:
+                  type: integer
+                start_date:
+                  type: string
+                  format: date
+                end_date:
+                  type: string
+                  format: date
+                address:
+                  type: string
+              required:
+              - user_id
+              - resort_id
+              - start_date
+              - end_date
+              - address
+  "/bookings/{id}":
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+    delete:
+      summary: Delete a booking if user is the author or user role is admin
+      tags:
+      - Bookings
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+  "/current_user":
+    get:
+      summary: Retrieve the current user
+      tags:
+      - User
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  role:
+                    type: string
+                required:
+                - id
+                - name
+                - role
+  "/resorts":
+    get:
+      summary: Retrieve a list of resorts
+      tags:
+      - Resorts
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    location:
+                      type: string
+                    price:
+                      type: number
+                    description:
+                      type: string
+                    guests_amount:
+                      type: integer
+                    image_url:
+                      type: string
+                    user_id:
+                      type: integer
+                    created_at:
+                      type: string
+                      format: date_time
+                    updated_at:
+                      type: string
+                      format: date_time
+                  required:
+                  - id
+                  - name
+                  - location
+                  - price
+                  - description
+                  - guests_amount
+                  - image_url
+                  - user_id
+                  - created_at
+                  - updated_at
+    post:
+      summary: Create a resort if user role is admin
+      tags:
+      - Resorts
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                location:
+                  type: string
+                price:
+                  type: number
+                description:
+                  type: string
+                guests_amount:
+                  type: integer
+                image_url:
+                  type: string
+                user_id:
+                  type: integer
+              required:
+              - name
+              - location
+              - price
+              - description
+              - guests_amount
+              - image_url
+              - user_id
+  "/resorts/{id}":
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+    get:
+      summary: Retrieve a resort
+      tags:
+      - Resorts
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  location:
+                    type: string
+                  price:
+                    type: number
+                  description:
+                    type: string
+                  guests_amount:
+                    type: integer
+                  image_url:
+                    type: string
+                  user_id:
+                    type: integer
+                  created_at:
+                    type: string
+                    format: date_time
+                  updated_at:
+                    type: string
+                    format: date_time
+    delete:
+      summary: Delete a resort if user role is admin
+      tags:
+      - Resorts
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+  "/signup":
+    post:
+      summary: Create a new user
+      tags:
+      - User
+      parameters: []
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+                role:
+                  type: string
+              required:
+              - name
+              - email
+              - password
+              - role
+  "/login":
+    post:
+      summary: login a user
+      tags:
+      - User
+      parameters: []
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - email
+              - password
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
