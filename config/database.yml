@@ -22,7 +22,7 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  password: password
+  password: 5432
 
 
 development:
@@ -88,3 +88,4 @@ production:
   database: Resort_Booking_Back_end_production
   username: Resort_Booking_Back_end
   password: <%= ENV["RESORT_BOOKING_BACK_END_DATABASE_PASSWORD"] %>
+  url: <%= ENV["MY_APP_DATABASE_URL"] %>
