@@ -39,6 +39,16 @@
 </details>
 
 
+<!-- LIVE DEMO -->
+
+## 🚀 Live Demo <a name="live-demo"></a>
+
+> Visit our webpage here.
+
+- [Live Demo Link](https://resort-booking-back-end.onrender.com)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ### Key Features <a name="key-features"></a>
 
 - Create/remove a booking for a resort
