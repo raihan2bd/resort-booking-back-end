@@ -1,6 +1,6 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins ENV['ALLOWED_ORIGIN'] || 'http://localhost:3000'
+    origins 'https://resort-booking-front-end.onrender.com'
     resource(
       '*',
       headers: :any,
