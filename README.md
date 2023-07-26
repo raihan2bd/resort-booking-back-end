@@ -129,7 +129,7 @@ rails db:seed
 
 ### Usage
 
--To run the development server, execute the following command:
+- To run the development server, execute the following command:
 
 ```sh
 rails server
@@ -139,7 +139,7 @@ rails server
 
 ### Testing
 
-To run tests, run the following command:
+- To run tests, run the following command:
 
 ```sh
 rspec spec 
