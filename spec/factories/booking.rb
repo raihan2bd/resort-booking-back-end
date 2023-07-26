@@ -5,7 +5,6 @@ FactoryBot.define do
     address { 'loram ipsum random location' }
 
     association :user
-    resort = Resort.first
-    resort_id { resort.id }
+    association :resort, factory: :resort
   end
 end

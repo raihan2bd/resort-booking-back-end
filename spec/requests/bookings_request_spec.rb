@@ -6,7 +6,7 @@ RSpec.describe 'Bookings API', type: :request do
     post '/login', params: { user: { email: @user.email, password: @user.password } }, as: :json
     @authorization = response.header['Authorization']
     @resort = FactoryBot.create(:resort)
-    @booking = FactoryBot.create(:booking)
+    @booking = FactoryBot.create(:booking, resort: @resort)
   end
 
   let(:Authorization) { @authorization }
