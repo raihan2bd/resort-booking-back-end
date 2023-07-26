@@ -26,15 +26,27 @@
 
 
 # Rails Blog <a name="about-project"></a>
-> Resort booking is a wepbage made with rails and react, for users to book different resorts.
+> Resort booking is a webpage made with Rails and React, for users to book different resorts. This is the back-end API version. If you want to see the front end please click [here](https://github.com/Thinus01/Resort_Booking_Front-end)
 
 ## 🛠 Built With <a name="built-with"></a>
 ### Tech Stack <a name="tech-stack"></a>
 
 <details>
-  <summary>Ruby On Rails with React</summary>
+  <summary>Front End</summary>
   <ul>
-    <li><a href="">Postgresql</a></li>
+    <li>React</li>
+    <li>Redux</li>
+    <li>JAVASCRIPT</li>
+    <li>Html</li>
+    <li>CSS</li>
+  </ul>
+</details>
+<details>
+  <summary>Back End</summary>
+  <ul>
+    <li>Ruby</li>
+    <li>Rails</li>
+    <li>PostgreSQL</li>
   </ul>
 </details>
 
@@ -66,28 +78,39 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 
-- Mac or PC
-- Understanding OOP principles
-- Have the following installed on your machine
-    - Ruby
-    - Rails
-    - PostgreSQL
-    - React
+- First of all to see this project's graphical interface make sure you run the [front-end](https://github.com/Thinus01/Resort_Booking_Front-end) part
+- Before running this repo on your local machine make sure you have installed <a name="install"></a> [Ruby](https://www.ruby-lang.org/), [Rails](https://rubyonrails.org/), and [PostgreSQL](https://www.postgresql.org/)
 
 ### Setup
 
-Clone this repository to your desired folder:
+- Clone this repository to your desired folder:
 
 ```sh
   cd your-folder
   https://github.com/Thinus01/Resort_Booking_Back-end
 ```
 
+- Before running the project please make sure you create a `.env` file to your project root directory and add `DATABASE_USER_NAME`, `DATABASE_PASSWORD`, and `JWT_SECRET_KEY` environment variables to the file. For example:
+```
+DATABASE_USER_NAME=place_your_postgres_database_username
+DATABASE_PASSWORD=place_your_database_password
+
+JWT_SECRET_KEY=place_your_jwt_secret_key
+```
+![back-end-env](https://github.com/Thinus01/Resort_Booking_Back-end/assets/35267447/3fd60673-53a2-4e6c-a386-ff894546c850)
+
+- After that make sure you change cors. To change the cors open the project with your favorite editor then click config folder then click initializers folder and open cors.rb file and after that change the `origins` to your front-end URL to solve the cross-origins request error. For example:
+```
+origins 'http://localhost:3000'
+```
+![cors](https://github.com/Thinus01/Resort_Booking_Back-end/assets/35267447/44eb387a-c8d5-40c8-b910-860ed9bf0195)
+
+
 ### Install
 
 Install this project with:
 
-Install the required gems with:
+- Install the required gems with:
 
 ```sh
 bundle install
@@ -96,20 +119,23 @@ npm install
 
 ### Database
 
-Create the databases and run migrations with:
+- Create the databases and run migrations with:
 
 ```sh
 rails db:create
 rails db:migrate
+rails db:seed
 ```
 
 ### Usage
 
-To run the development server, execute the following command:
+-To run the development server, execute the following command:
 
 ```sh
 rails server
 ```
+
+`Note:` For more information about this back-end API end-points run the server and visit `project_base_url/api-docs` For example: `http://localhost:4000/api-docs`.
 
 ### Testing
 
@@ -185,7 +211,7 @@ If you like this project, please leave a ⭐️
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-We want to give a big thanks to Microverse for giving us the change to achieve this milestone
+We want to give a big thanks to Microverse for giving us the chance to achieve this milestone
 We also want to thank [Murat Korkmaz](https://www.behance.net/muratk) for his [design](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign), that our project is based on.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
