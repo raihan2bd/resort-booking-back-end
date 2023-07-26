@@ -118,6 +118,15 @@ origins 'http://localhost:3000'
 ```
 ![cors](https://github.com/Thinus01/Resort_Booking_Back-end/assets/35267447/44eb387a-c8d5-40c8-b910-860ed9bf0195)
 
+- To generate the `JWT_SECRET_KEY` as a secure and random hash using Ruby's `SecureRandom module`. You can do this in a Ruby script or in your Rails console:
+```ruby
+require 'securerandom'
+
+jwt_secret_key = SecureRandom.hex(64)
+puts jwt_secret_key
+```
+This will generate a random string of 128 characters (64 bytes in hexadecimal representation) and print it to the console. Then you can copy it from the console and paste it into your .env file as a value of `JWT_SECRET_KEY`.
+
 
 ### Install
 
