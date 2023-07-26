@@ -9,7 +9,7 @@
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
-  - [Kanban board](#-kanban-board-)
+  - [💻 Kanban Board ](#-kanban-board-)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
@@ -71,7 +71,7 @@
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Kanban Board <a name="kanban-board"></a>
-Hi there, we are a five-member team, @Thinus01, @raihan2bd , @edubew , @MICHAELKITH , @lawrahkonwea.
+Hi there, we are a five-member team, [@Thinus01](https://github.com/Thinus01), [@raihan2bd](https://github.com/raihan2bd) , [@edubew](https://github.com/edubew) , [@MichealKith](https://github.com/MICHAELKITH) , [@lawrahkonwea](https://github.com/lawrahkonwea).
 
 We are dividing the project between [front-end](https://github.com/Thinus01/Resort_Booking_Front-end) and [back-end](https://github.com/Thinus01/Resort_Booking_Back-end)
 We also created two kanban boards together for the projects
